@@ -11,6 +11,7 @@ def start_bot(update: Updater, context: callbackcontext):
 	print(update)
 	mytext = """ Приветствую, {}
 	Скоро меня обучат и я буду очень умным. Be patient with me""".format(update.message.chat.first_name)
+	logging.info('User {} started dialog'.format(update.message.chat.first_name))
 	update.message.reply_text(mytext)
 
 def chat(update: Updater, context: callbackcontext):
