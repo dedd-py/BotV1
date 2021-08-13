@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 def start_bot(update:Updater, context: CallbackContext):
 	print(update)
 	first = """Добро пожаловать, {}
-Узнать существующие команды напишите /help""".format(update.message.chat.first_name)
+Чтобы узнать существующие команды напишите /help""".format(update.message.chat.first_name)
 	update.message.reply_text(first)
 
 def alarm(context: CallbackContext):
