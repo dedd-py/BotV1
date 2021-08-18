@@ -18,8 +18,10 @@ def start_bot(update:Updater, context: CallbackContext):
 def xcq(update:Updater, context:CallbackContext):
 	print(update)
 	xcq = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+	xcqgif = "https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825"
 	update.message.reply_text(xcq)
-
+	update.message.reply_text(xcqgif)
+	
 def alarm(context: CallbackContext):
 	job = context.job
 	context.bot.send_message(job.context, text='Время вышло!')
