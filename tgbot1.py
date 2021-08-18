@@ -15,6 +15,11 @@ def start_bot(update:Updater, context: CallbackContext):
 Чтобы узнать существующие команды напишите /help""".format(update.message.chat.first_name)
 	update.message.reply_text(first)
 
+def xcq(update:Updater, context:CallbackContext):
+	print(update)
+	xcq = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+	update.message.reply_text(xcq)
+
 def alarm(context: CallbackContext):
 	job = context.job
 	context.bot.send_message(job.context, text='Время вышло!')
@@ -48,7 +53,7 @@ def set_timer(update: Update, context: CallbackContext):
 		update.message.reply_text(text)
 
 	except (IndexError, ValueError):
-		update.message.reply_text('Используйте команду вот так: /set <секунды>')
+		update.message.reply_text('Используйте команду вот так: /set время в секундах')
 
 def unset(update: Update, context: CallbackContext):
 	chat_id = update.message.chat_id
@@ -69,7 +74,7 @@ def main():
 	updtr.dispatcher.add_handler(CommandHandler('help', helper))
 	updtr.dispatcher.add_handler(CommandHandler("set", set_timer))
 	updtr.dispatcher.add_handler(CommandHandler("unset", unset))
-
+	updtr.dispatcher.add_handler(CommandHandler("xcq", xcq))
 	updtr.start_polling()
 	updtr.idle()
 
